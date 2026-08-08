@@ -16,7 +16,7 @@ const testimonialCarousel = document.querySelector("[data-testimonial-carousel]"
 const answers = [
   {
     keys: ["service", "offer", "investigation", "investigations"],
-    text: "Blackman Detective Services offers private investigation services including background checks, litigation support, surveillance, workers' compensation investigations, domestic investigations, locating persons, process serving, and insurance-related investigations."
+    text: "Blackman Detective Services offers Private Investigation Services including background checks, litigation support, surveillance, workers' compensation investigations, domestic investigations, locating persons, process serving, and insurance-related investigations."
   },
   {
     keys: ["licensed", "license", "state", "states"],
@@ -27,8 +27,8 @@ const answers = [
     text: "Initial consultations are free. Each case is evaluated and priced individually based on the scope and needs of the investigation."
   },
   {
-    keys: ["police", "private investigator"],
-    text: "Police generally respond to criminal matters for the public. A private investigator focuses on a client's specific needs and works with confidentiality on the client's behalf."
+    keys: ["police", "Private Investigator"],
+    text: "Police generally respond to criminal matters for the public. A Private Investigator focuses on a client's specific needs and works with confidentiality on the client's behalf."
   },
   {
     keys: ["payment", "pay", "invoice", "retainer"],
@@ -56,8 +56,8 @@ const siteKnowledge = [
   {
     title: "Services overview",
     page: "Services",
-    keywords: ["services", "offer", "investigations", "private investigator", "investigative services"],
-    text: "Blackman Detective Services is a multi-disciplined private investigations firm offering liability investigations, background checks, litigation support, asset research, child custody and special investigations, criminal defense investigations, criminal investigations, disability claims investigations, domestic investigations, due diligence, insurance case surveillance, jury panel research, locating persons, personal injury investigations, process serving, property and casualty insurance claims investigation, statements, surveillance, telephone number identification, and workers' compensation investigations."
+    keywords: ["services", "offer", "investigations", "Private Investigator", "investigative services"],
+    text: "Blackman Detective Services is a multi-disciplined Private Investigation Firm offering liability investigations, background checks, litigation support, asset research, child custody and special investigations, criminal defense investigations, criminal investigations, disability claims investigations, domestic investigations, due diligence, insurance case surveillance, jury panel research, locating persons, personal injury investigations, process serving, property and casualty insurance claims investigation, statements, surveillance, telephone number identification, and workers' compensation investigations."
   },
   {
     title: "Asset research",
@@ -186,10 +186,10 @@ const siteKnowledge = [
     text: "Workers' compensation investigations can include background investigation profiles, accident-circumstance investigation, verification of activities, previous claim histories where available, interviews, written/audio/video statements, documentation, and testimony in legal proceedings."
   },
   {
-    title: "What is a private investigator?",
+    title: "What is a Private Investigator?",
     page: "FAQ",
-    keywords: ["what is private investigator", "private investigator", "definition"],
-    text: "A private investigator makes inquiries or investigations on a contractual basis concerning crimes or wrongs, identity and conduct, location or recovery of property, causes of losses or injuries, evidence for proceedings, and protection of individuals from serious harm."
+    keywords: ["what is Private Investigator", "Private Investigator", "definition"],
+    text: "A Private Investigator makes inquiries or investigations on a contractual basis concerning crimes or wrongs, identity and conduct, location or recovery of property, causes of losses or injuries, evidence for proceedings, and protection of individuals from serious harm."
   },
   {
     title: "Licensing and reciprocity",
@@ -198,16 +198,16 @@ const siteKnowledge = [
     text: "Blackman Detective Services is licensed in North Carolina. Reciprocity may allow licensed private protective services work in other states when requirements are met, and temporary permits may apply for specific cases originating in another state."
   },
   {
-    title: "Private investigator versus police",
+    title: "Private Investigator versus police",
     page: "FAQ",
-    keywords: ["police", "private investigator", "confidential", "civil"],
-    text: "Police do not normally get involved in civil matters unless a crime has been committed. A private investigator focuses on the client's particular needs and operates with complete confidentiality on the client's behalf."
+    keywords: ["police", "Private Investigator", "confidential", "civil"],
+    text: "Police do not normally get involved in civil matters unless a crime has been committed. A Private Investigator focuses on the client's particular needs and operates with complete confidentiality on the client's behalf."
   },
   {
-    title: "When to hire a private investigator",
+    title: "When to hire a Private Investigator",
     page: "FAQ",
     keywords: ["hire", "situations", "warrant", "domestic", "missing", "background", "workers compensation"],
-    text: "Situations that may warrant hiring a private investigator include domestic investigations, missing persons, criminal activity, employment background checks, DMV record checks, and workers' compensation investigations."
+    text: "Situations that may warrant hiring a Private Investigator include domestic investigations, missing persons, criminal activity, employment background checks, DMV record checks, and workers' compensation investigations."
   },
   {
     title: "Consultation and pricing",
@@ -261,7 +261,7 @@ const siteKnowledge = [
     title: "Ownership",
     page: "About",
     keywords: ["minority owned", "minority-owned", "woman owned", "woman-owned", "female owned", "owner", "jamie mitchell"],
-    text: "Blackman Detective Services was re-introduced as woman- and minority-owned in 2019 when it was purchased by licensed private investigator and bondsman Jamie Mitchell."
+    text: "Blackman Detective Services was re-introduced as woman- and minority-owned in 2019 when it was purchased by licensed Private Investigator and bondsman Jamie Mitchell."
   },
   {
     title: "Privacy policy",
@@ -422,7 +422,7 @@ function answerFor(value) {
 
   if (hasAny(question, ["license", "licensed", "license number"])) {
     return {
-      text: "Blackman Detective Services is a licensed North Carolina private investigation firm. License #5388.",
+      text: "Blackman Detective Services is a licensed North Carolina Private Investigation Firm. License #5388.",
       href: pageHref("About"),
       label: "View About"
     };
@@ -522,7 +522,7 @@ function answerFor(value) {
 
   if (hasAny(question, ["faq", "frequently asked", "common questions"])) {
     return {
-      text: "The FAQ page answers common questions about private investigators, consultations, confidentiality, licensing, case timing, and payment options.",
+      text: "The FAQ page answers common questions about Private Investigators, consultations, confidentiality, licensing, case timing, and payment options.",
       href: pageHref("FAQ"),
       label: "View FAQ"
     };
@@ -610,7 +610,7 @@ function answerFor(value) {
 
   if (hasAny(question, ["services", "service", "offer", "do you do", "what do you do"])) {
     return {
-      text: "Blackman Detective Services offers private investigation services including background checks, litigation support, surveillance, workers' compensation investigations, domestic investigations, locating persons, process serving, and insurance-related investigations.",
+      text: "Blackman Detective Services offers Private Investigation Services including background checks, litigation support, surveillance, workers' compensation investigations, domestic investigations, locating persons, process serving, and insurance-related investigations.",
       href: pageHref("Services"),
       label: "View Services"
     };
@@ -618,7 +618,7 @@ function answerFor(value) {
 
   if (question.includes("minority owned") || question.includes("minority-owned") || question.includes("woman owned") || question.includes("woman-owned")) {
     return {
-      text: "Blackman Detective Services was re-introduced as woman- and minority-owned in 2019 when it was purchased by licensed private investigator and bondsman Jamie Mitchell.",
+      text: "Blackman Detective Services was re-introduced as woman- and minority-owned in 2019 when it was purchased by licensed Private Investigator and bondsman Jamie Mitchell.",
       href: pageHref("About"),
       label: "View About"
     };

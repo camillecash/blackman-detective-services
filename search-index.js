@@ -35,7 +35,7 @@ window.BDS_SEARCH_INDEX = [
       "department",
       "where"
     ],
-    "text": "The strength of Blackman Detective Services lies in knowledge and experience. Founded in Raleigh in 1993, Blackman Detective Services is one of North Carolina’s respected private investigation firms, serving law firms, insurance professionals, businesses, and private citizens. A firm built on experience. Blackman Detective Services was founded by William Allison Blackman in 1993 after 30 years of exemplary service with the Raleigh Police Department, where he retired as a homicide investigator.",
+    "text": "The strength of Blackman Detective Services lies in knowledge and experience. Founded in Raleigh in 1993, Blackman Detective Services is one of North Carolina’s respected Private Investigation Firms, serving law firms, insurance professionals, businesses, and private citizens. A firm built on experience. Blackman Detective Services was founded by William Allison Blackman in 1993 after 30 years of exemplary service with the Raleigh Police Department, where he retired as a homicide investigator.",
     "position": 0
   },
   {
@@ -111,7 +111,7 @@ window.BDS_SEARCH_INDEX = [
       "mitchell",
       "spent"
     ],
-    "text": "The firm’s leadership combines police-level investigative experience, mentorship, community involvement, and a continued commitment to client service. Blackman Detective Services proudly re-introduced itself as minority- and female-owned in 2019 when it was purchased by licensed private investigator and bondsman Jamie Mitchell. Jamie spent five years working full-time with Blackman Detective Services under the mentorship of Mr. Blackman and Mr. Bissette. Her ambition, attention to detail, and community involvement have helped shape her career as a respected investigator.",
+    "text": "The firm’s leadership combines police-level investigative experience, mentorship, community involvement, and a continued commitment to client service. Blackman Detective Services proudly re-introduced itself as minority- and female-owned in 2019 when it was purchased by licensed Private Investigator and bondsman Jamie Mitchell. Jamie spent five years working full-time with Blackman Detective Services under the mentorship of Mr. Blackman and Mr. Bissette. Her ambition, attention to detail, and community involvement have helped shape her career as a respected investigator.",
     "position": 2
   },
   {
@@ -149,7 +149,7 @@ window.BDS_SEARCH_INDEX = [
       "government",
       "agencies"
     ],
-    "text": "Renowned private investigator William Allison Blackman founded Blackman Detective Services after retiring from the Raleigh Police Department, where he served for 30 years. Mr. Blackman’s background as a homicide investigator and his dedication to client service helped establish a firm known for work with law firms, insurance professionals, government agencies, businesses, and individuals. Need a private investigator in North Carolina? Contact Blackman Detective Services to discuss your needs with a professional team that understands discretion, documentation, and clear next steps.",
+    "text": "Renowned Private Investigator William Allison Blackman founded Blackman Detective Services after retiring from the Raleigh Police Department, where he served for 30 years. Mr. Blackman’s background as a homicide investigator and his dedication to client service helped establish a firm known for work with law firms, insurance professionals, government agencies, businesses, and individuals. Need a Private Investigator in North Carolina? Contact Blackman Detective Services to discuss your needs with a professional team that understands discretion, documentation, and clear next steps.",
     "position": 3
   },
   {
@@ -225,7 +225,7 @@ window.BDS_SEARCH_INDEX = [
       "firm",
       "directly"
     ],
-    "text": "Our Answers to Your Questions Curious about what a private investigator does? These answers cover common questions about licensing, confidentiality, private investigation services, and working with Blackman Detective Services in Raleigh, North Carolina. Start here for general answers before reaching out. For questions tied to a specific situation, contact the firm directly. What is a private investigator?",
+    "text": "Our Answers to Your Questions Curious about what a Private Investigator does? These answers cover common questions about licensing, confidentiality, Private Investigation Services, and working with Blackman Detective Services in Raleigh, North Carolina. Start here for general answers before reaching out. For questions tied to a specific situation, contact the firm directly. What is a Private Investigator?",
     "position": 0
   },
   {
@@ -263,7 +263,7 @@ window.BDS_SEARCH_INDEX = [
       "done",
       "threatened"
     ],
-    "text": "Chapter 74C-3, Private Protective Services, Article 1, also known as the Private Protective Services Act, defines a private investigator as follows: “Any person who engages in the profession of, or accepts employment to furnish, agrees to make, or makes inquiries or investigations concerning any of the following on a contractual basis: a. Crimes or wrongs done or threatened against the United States or any state or territory of the United States.",
+    "text": "Chapter 74C-3, Private Protective Services, Article 1, also known as the Private Protective Services Act, defines a Private Investigator as follows: “Any person who engages in the profession of, or accepts employment to furnish, agrees to make, or makes inquiries or investigations concerning any of the following on a contractual basis: a. Crimes or wrongs done or threatened against the United States or any state or territory of the United States.",
     "position": 1
   },
   {
@@ -444,7 +444,7 @@ window.BDS_SEARCH_INDEX = [
       "particular",
       "needs"
     ],
-    "text": "Why would I employ a private investigator when I could just call the police? Unless a crime has been committed, the police do not normally get involved in civil matters. Another way to look at it is that a police officer is a public official operating on behalf of the general public. A private investigator is focused on your particular needs and operates with complete confidentiality on your behalf. What are some situations that would warrant hiring a private investigator?",
+    "text": "Why would I employ a Private Investigator when I could just call the police? Unless a crime has been committed, the police do not normally get involved in civil matters. Another way to look at it is that a police officer is a public official operating on behalf of the general public. A Private Investigator is focused on your particular needs and operates with complete confidentiality on your behalf. What are some situations that would warrant hiring a Private Investigator?",
     "position": 6
   },
   {
@@ -482,7 +482,7 @@ window.BDS_SEARCH_INDEX = [
       "case",
       "evaluated"
     ],
-    "text": "Domestic investigations such as a cheating spouse, missing persons, criminal activity, employment background checks, DMV record checks, and workers’ compensation investigations are some example of situations that would warrant hiring a private investigator. How does Blackman Detective Services charge for its services? Each case is evaluated and priced on an individual basis. The initial consultation is free.",
+    "text": "Domestic investigations such as a cheating spouse, missing persons, criminal activity, employment background checks, DMV record checks, and workers’ compensation investigations are some example of situations that would warrant hiring a Private Investigator. How does Blackman Detective Services charge for its services? Each case is evaluated and priced on an individual basis. The initial consultation is free.",
     "position": 7
   },
   {
@@ -558,7 +558,7 @@ window.BDS_SEARCH_INDEX = [
       "discretion",
       "diligence"
     ],
-    "text": "Litigation support, workers' compensation investigations, liability investigations, jury panel research, statements, and court testimony. Missing persons, domestic investigations, child custody investigations, background checks, and locating persons with complete discretion. Due diligence, asset research, process serving, surveillance, and other research needs. One of the most respected private investigation firms in North Carolina. Founded in 1993, Blackman Detective Services has worked extensively with law firms, the insurance industry, private businesses, and individuals. Concentrated on individual needs",
+    "text": "Litigation support, workers' compensation investigations, liability investigations, jury panel research, statements, and court testimony. Missing persons, domestic investigations, child custody investigations, background checks, and locating persons with complete discretion. Due diligence, asset research, process serving, surveillance, and other research needs. One of the most respected Private Investigation Firms in North Carolina. Founded in 1993, Blackman Detective Services has worked extensively with law firms, the insurance industry, private businesses, and individuals. Concentrated on individual needs",
     "position": 1
   },
   {
@@ -973,7 +973,7 @@ window.BDS_SEARCH_INDEX = [
       "wide",
       "variety"
     ],
-    "text": "Private investigators with your best interests in mind. When you are trying to locate a missing loved one, obtain hard-to-find records, or learn detailed background information, contact Blackman Detective Services in Raleigh, North Carolina. Blackman Detective Services is a multi-disciplined private investigations firm offering a wide variety of services, including liability investigations, background checks, and litigation support. If you are unable to locate a service on this page that fits your specific needs, please do not hesitate to contact us. Our investigators will make appearances for court testimony at legal proceedings.",
+    "text": "Private Investigators with your best interests in mind. When you are trying to locate a missing loved one, obtain hard-to-find records, or learn detailed background information, contact Blackman Detective Services in Raleigh, North Carolina. Blackman Detective Services is a multi-disciplined Private Investigation Firm offering a wide variety of services, including liability investigations, background checks, and litigation support. If you are unable to locate a service on this page that fits your specific needs, please do not hesitate to contact us. Our investigators will make appearances for court testimony at legal proceedings.",
     "position": 0
   },
   {
