@@ -12,6 +12,14 @@ const newsletterToggle = document.querySelector("[data-newsletter-toggle]");
 const policyTabs = document.querySelectorAll("[data-policy-tab]");
 const policyPanels = document.querySelectorAll("[data-policy-panel]");
 const testimonialCarousel = document.querySelector("[data-testimonial-carousel]");
+const chatNudge = document.querySelector("[data-chat-nudge]");
+const chatNudgeOpen = document.querySelector("[data-chat-nudge-open]");
+const chatNudgeClose = document.querySelector("[data-chat-nudge-close]");
+const quickQuestionPanel = document.querySelector(".chat-quick-questions");
+const quickQuestionButtons = document.querySelectorAll("[data-chat-question]");
+const chatNudgeDismissedKey = "bdsSleuthyNudgeDismissed";
+const chatCarryoverKey = "bdsSleuthyCarryover";
+const chatCarryoverPendingKey = "bdsSleuthyCarryoverPending";
 
 const answers = [
   {
@@ -359,6 +367,78 @@ function addMessage(content, type = "bot") {
   body.scrollTop = body.scrollHeight;
 }
 
+function scrollChatToBottom() {
+  if (!body) return;
+  window.requestAnimationFrame(() => {
+    body.scrollTop = body.scrollHeight;
+  });
+}
+
+function placeQuickQuestions() {
+  if (!body || !quickQuestionPanel) return;
+  const firstMessage = body.querySelector(".chat-message");
+  if (firstMessage) {
+    firstMessage.insertAdjacentElement("afterend", quickQuestionPanel);
+    return;
+  }
+  body.appendChild(quickQuestionPanel);
+}
+
+placeQuickQuestions();
+
+function readChatMessages() {
+  if (!body) return [];
+  return Array.from(body.querySelectorAll(".chat-message")).map((message) => {
+    const link = message.querySelector(".chat-message-link");
+    const textNode = Array.from(message.childNodes).find((node) => node.nodeType === Node.TEXT_NODE);
+    const item = {
+      type: message.classList.contains("user") ? "user" : "bot",
+      text: textNode ? textNode.textContent : message.textContent
+    };
+
+    if (link) {
+      item.href = link.getAttribute("href") || "";
+      item.label = link.textContent;
+    }
+
+    return item;
+  });
+}
+
+function saveChatCarryover() {
+  sessionStorage.setItem(chatCarryoverKey, JSON.stringify(readChatMessages()));
+  sessionStorage.setItem(chatCarryoverPendingKey, "true");
+}
+
+function restoreChatCarryover() {
+  if (!body || sessionStorage.getItem(chatCarryoverPendingKey) !== "true") return;
+
+  const navigationEntry = performance.getEntriesByType("navigation")[0];
+  if (navigationEntry && navigationEntry.type === "reload") {
+    sessionStorage.removeItem(chatCarryoverKey);
+    sessionStorage.removeItem(chatCarryoverPendingKey);
+    return;
+  }
+
+  try {
+    const messages = JSON.parse(sessionStorage.getItem(chatCarryoverKey) || "[]");
+    if (!Array.isArray(messages) || !messages.length) return;
+    body.innerHTML = "";
+    messages.forEach((message) => {
+      addMessage(message.href && message.label
+        ? { text: message.text, href: message.href, label: message.label }
+        : message.text, message.type);
+    });
+    placeQuickQuestions();
+    scrollChatToBottom();
+  } catch (error) {
+    sessionStorage.removeItem(chatCarryoverKey);
+    sessionStorage.removeItem(chatCarryoverPendingKey);
+  }
+}
+
+restoreChatCarryover();
+
 function normalizeText(value) {
   return value
     .toLowerCase()
@@ -440,7 +520,7 @@ function answerFor(value) {
     return {
       text: "Blackman Detective Services phone number is (919) 821-0016. Please do not share sensitive case details through the chatbot.",
       href: pageHref("Contact"),
-      label: "View Contact"
+      label: "Free Consultation"
     };
   }
 
@@ -448,7 +528,7 @@ function answerFor(value) {
     return {
       text: "You can email Blackman Detective Services at Investigator@blackmanpi.com. Please do not send sensitive case details through the chatbot.",
       href: pageHref("Contact"),
-      label: "View Contact"
+      label: "Free Consultation"
     };
   }
 
@@ -456,7 +536,7 @@ function answerFor(value) {
     return {
       text: "You can call (919) 821-0016, email Investigator@blackmanpi.com, or use the inquiry form to request a free consultation.",
       href: pageHref("Contact"),
-      label: "View Contact"
+      label: "Free Consultation"
     };
   }
 
@@ -464,7 +544,7 @@ function answerFor(value) {
     return {
       text: "Office hours are Monday through Friday, 8:00 a.m. to 5:00 p.m. The inquiry form connects to a 24/7 answering service on weekends and after hours.",
       href: pageHref("Contact"),
-      label: "View Contact"
+      label: "Free Consultation"
     };
   }
 
@@ -472,15 +552,15 @@ function answerFor(value) {
     return {
       text: "Blackman Detective Services is located at 4208 Six Forks Rd Suite 1000, Raleigh, NC 27609.",
       href: pageHref("Contact"),
-      label: "View Contact"
+      label: "Free Consultation"
     };
   }
 
-  if (hasAny(question, ["service area", "serving area", "cities", "raleigh", "durham", "cary", "chapel hill", "apex", "wake forest", "north carolina"])) {
+  if (hasAny(question, ["service area", "service areas", "serving area", "areas do you serve", "area do you serve", "where do you serve", "where do you service", "areas served", "cities", "raleigh", "durham", "cary", "chapel hill", "apex", "wake forest", "north carolina"])) {
     return {
       text: "Blackman Detective Services serves Raleigh, Durham, Cary, Chapel Hill, Apex, Wake Forest, and clients across North Carolina.",
       href: pageHref("Contact"),
-      label: "View Contact"
+      label: "Free Consultation"
     };
   }
 
@@ -488,7 +568,7 @@ function answerFor(value) {
     return {
       text: "Initial consultations are free. Each case is evaluated and priced individually based on the scope and needs of the investigation.",
       href: pageHref("Contact"),
-      label: "View Contact"
+      label: "Free Consultation"
     };
   }
 
@@ -638,10 +718,47 @@ function answerFor(value) {
 }
 
 if (toggle && chatbot) {
+  const dismissChatNudge = () => {
+    if (chatNudge) chatNudge.hidden = true;
+    sessionStorage.setItem(chatNudgeDismissedKey, "true");
+  };
+
+  if (chatNudge) {
+    const navigationEntry = performance.getEntriesByType("navigation")[0];
+    if (navigationEntry && navigationEntry.type === "reload") {
+      sessionStorage.removeItem(chatNudgeDismissedKey);
+    } else if (sessionStorage.getItem(chatNudgeDismissedKey) === "true") {
+      chatNudge.hidden = true;
+    }
+
+    window.addEventListener("pagehide", () => {
+      sessionStorage.setItem(chatNudgeDismissedKey, "true");
+    });
+  }
+
   toggle.addEventListener("click", (event) => {
     event.stopPropagation();
+    dismissChatNudge();
     chatbot.classList.toggle("open");
+    if (chatbot.classList.contains("open")) scrollChatToBottom();
   });
+
+  if (chatNudgeOpen) {
+    chatNudgeOpen.addEventListener("click", (event) => {
+      event.stopPropagation();
+      dismissChatNudge();
+      chatbot.classList.add("open");
+      scrollChatToBottom();
+      if (input) input.focus();
+    });
+  }
+
+  if (chatNudgeClose) {
+    chatNudgeClose.addEventListener("click", (event) => {
+      event.stopPropagation();
+      dismissChatNudge();
+    });
+  }
 
   chatbot.addEventListener("click", (event) => {
     event.stopPropagation();
@@ -877,13 +994,31 @@ if (policyTabs.length) {
   });
 }
 
+function askChatQuestion(value, showUserMessage = true) {
+  const question = value.trim();
+  if (!question) return;
+  if (showUserMessage) addMessage(question, "user");
+  addMessage(answerFor(question));
+}
+
 if (form && input) {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const value = input.value.trim();
-    if (!value) return;
-    addMessage(value, "user");
+    askChatQuestion(input.value);
     input.value = "";
-    addMessage(answerFor(value));
+  });
+}
+
+quickQuestionButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    askChatQuestion(button.dataset.chatQuestion || button.textContent || "");
+  });
+});
+
+if (body) {
+  body.addEventListener("click", (event) => {
+    const link = event.target.closest(".chat-message-link");
+    if (!link) return;
+    saveChatCarryover();
   });
 }
