@@ -52,7 +52,7 @@ const answers = [
   },
   {
     keys: ["spanish", "español", "language"],
-    text: "Use the Español link at the top of the page to translate the site. Use the English link to switch back."
+    text: "Use the Español link at the top of the page to translate the site. You can also work with a Spanish-speaking team member when discussing your needs or scheduling a consultation."
   },
   {
     keys: ["address", "location", "where"],
@@ -597,7 +597,11 @@ function answerFor(value) {
   }
 
   if (hasAny(question, ["spanish", "español", "espanol", "translate", "language"])) {
-    return "Use the Español link at the top of the page to translate the site. Use the English link to switch back.";
+    return {
+      text: "Use the Español link at the top of the page to translate the site. You can also work with a Spanish-speaking team member when discussing your needs or scheduling a consultation.",
+      href: pageHref("Contact"),
+      label: "Free Consultation"
+    };
   }
 
   if (hasAny(question, ["faq", "frequently asked", "common questions"])) {
