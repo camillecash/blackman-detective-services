@@ -149,7 +149,7 @@ window.BDS_SEARCH_INDEX = [
       "government",
       "agencies"
     ],
-    "text": "Renowned Private Investigator William Allison Blackman founded Blackman Detective Services after retiring from the Raleigh Police Department, where he served for 30 years. Mr. Blackman’s background as a homicide investigator and his dedication to client service helped establish a firm known for work with law firms, insurance professionals, government agencies, businesses, and individuals. Need a Private Investigator in North Carolina? Contact Blackman Detective Services to discuss your needs with a professional team that understands discretion, documentation, and clear next steps.",
+    "text": "Renowned Private Investigator William Allison Blackman founded Blackman Detective Services after retiring from the Raleigh Police Department, where he served for 30 years. Mr. Blackman’s background as a homicide investigator and his dedication to client service helped establish a firm known for work with law firms, insurance professionals, government agencies, businesses, and individuals. Need a Private Investigator in North Carolina? Request a free consultation to discuss your needs with a professional team that understands discretion, documentation, and clear next steps.",
     "position": 3
   },
   {
@@ -159,23 +159,21 @@ window.BDS_SEARCH_INDEX = [
     "label": "View Contact",
     "keywords": [
       "contact",
-      "please",
+      "request",
+      "free",
+      "consultation",
       "reach",
+      "general",
       "questions",
-      "comments",
       "using",
       "information",
       "below",
-      "firm",
-      "looks",
-      "forward",
-      "hearing",
+      "start",
+      "confidential",
       "discuss",
       "investigative",
       "needs",
-      "general",
       "question",
-      "request",
       "direction",
       "best",
       "next",
@@ -185,9 +183,11 @@ window.BDS_SEARCH_INDEX = [
       "suite",
       "1000",
       "raleigh",
-      "27609"
+      "27609",
+      "serving",
+      "durham"
     ],
-    "text": "Contact Blackman Detective Services Please reach out with questions or comments using the information below. The firm looks forward to hearing from you. Reach out to discuss your investigative needs, ask a general question, or request direction on the best next step. 4208 Six Forks Rd Suite 1000 Raleigh, NC 27609 Serving Raleigh, Durham, Cary, Chapel Hill, Apex, Wake Forest, and clients across North Carolina. Spanish-speaking assistance If preferred, you can work with a Spanish-speaking team member when discussing your needs or scheduling a consultation. Monday-Friday, 8:00 a.m.-5:00 p.m.",
+    "text": "Contact Blackman Detective Services Request a free consultation or reach out with general questions using the information below. Start with a free, confidential consultation to discuss your investigative needs, ask a general question, or request direction on the best next step. 4208 Six Forks Rd Suite 1000 Raleigh, NC 27609 Serving Raleigh, Durham, Cary, Chapel Hill, Apex, Wake Forest, and clients across North Carolina. Spanish-speaking assistance If preferred, you can work with a Spanish-speaking team member when discussing your needs or scheduling a consultation. Monday-Friday, 8:00 a.m.-5:00 p.m.",
     "position": 0
   },
   {
@@ -207,12 +207,15 @@ window.BDS_SEARCH_INDEX = [
       "inquiry",
       "form",
       "below",
+      "request",
+      "free",
+      "consultation",
       "connects",
       "answering",
       "service",
       "weekends"
     ],
-    "text": "Investigations are conducted as needed beyond normal business hours. Use the inquiry form below to contact Blackman Detective Services. The form connects to a 24/7 answering service on weekends and after hours.",
+    "text": "Investigations are conducted as needed beyond normal business hours. Use the inquiry form below to request a free consultation with Blackman Detective Services. The form connects to a 24/7 answering service on weekends and after hours.",
     "position": 1
   },
   {
@@ -246,11 +249,11 @@ window.BDS_SEARCH_INDEX = [
       "tied",
       "specific",
       "situation",
-      "contact",
-      "firm",
-      "directly"
+      "request",
+      "free",
+      "consultation"
     ],
-    "text": "Our Answers to Your Questions Curious about what a Private Investigator does? These answers cover common questions about licensing, confidentiality, Private Investigation Services, and working with Blackman Detective Services in Raleigh, North Carolina. Start here for general answers before reaching out. For questions tied to a specific situation, contact the firm directly. What is a Private Investigator?",
+    "text": "Our Answers to Your Questions Curious about what a Private Investigator does? These answers cover common questions about licensing, confidentiality, Private Investigation Services, and working with Blackman Detective Services in Raleigh, North Carolina. Start here for general answers before reaching out. For questions tied to a specific situation, request a free consultation. What is a Private Investigator?",
     "position": 0
   },
   {
@@ -648,18 +651,18 @@ window.BDS_SEARCH_INDEX = [
       "forward",
       "more",
       "confidence",
+      "free",
       "confidential",
-      "conversation",
+      "consultation",
       "determine",
       "whether",
       "investigation",
       "right",
       "step",
       "sleuth",
-      "brings",
-      "together"
+      "brings"
     ],
-    "text": "You receive clear findings that help you make decisions, prepare for next steps, or move forward with more confidence. A confidential conversation can help determine whether Private Investigation Services are the right next step. The Sleuth brings together the podcast, newsletter archive, and media features for visitors who want to learn more before reaching out. Hear from clients who trusted Blackman Detective Services with sensitive questions, important decisions, and time-sensitive investigative needs.",
+    "text": "You receive clear findings that help you make decisions, prepare for next steps, or move forward with more confidence. A free, confidential consultation can help determine whether Private Investigation Services are the right next step. The Sleuth brings together the podcast, newsletter archive, and media features for visitors who want to learn more before reaching out. Hear from clients who trusted Blackman Detective Services with sensitive questions, important decisions, and time-sensitive investigative needs.",
     "position": 3
   },
   {
@@ -1259,7 +1262,7 @@ window.BDS_SEARCH_INDEX = [
       "unable",
       "locate"
     ],
-    "text": "Private Investigators with your best interests in mind. Professional Private Investigation Services based in Raleigh and serving clients throughout North Carolina. Blackman Detective Services is a multi-disciplined Private Investigation Firm offering a wide variety of services, including liability investigations, background checks, and litigation support. If you are unable to locate a service on this page that fits your specific needs, please do not hesitate to contact us. Our investigators will make appearances for court testimony at legal proceedings. Criminal Defense Investigations",
+    "text": "Private Investigators with your best interests in mind. Professional Private Investigation Services based in Raleigh and serving clients throughout North Carolina. Blackman Detective Services is a multi-disciplined Private Investigation Firm offering a wide variety of services, including liability investigations, background checks, and litigation support. If you are unable to locate a service on this page that fits your specific needs, please request a free consultation. Our investigators will make appearances for court testimony at legal proceedings. Criminal Defense Investigations",
     "position": 0
   },
   {
@@ -1624,7 +1627,7 @@ window.BDS_SEARCH_INDEX = [
       "clients",
       "listed"
     ],
-    "text": "Our firm provides asset research to include property and vehicle information. We also offer research that determines if there are any bankruptcies, liens, and/or judgments. From partnerships to acquisitions, we are able to do all of the legwork required to get the information you need. Our staff has traveled great distances to get the truth for our clients. If you have a research need that’s not listed here, please call us with your specific requirements.",
+    "text": "Our firm provides asset research to include property and vehicle information. We also offer research that determines if there are any bankruptcies, liens, and/or judgments. From partnerships to acquisitions, we are able to do all of the legwork required to get the information you need. Our staff has traveled great distances to get the truth for our clients. If you have a research need that’s not listed here, request a free consultation to discuss your specific requirements.",
     "position": 10
   },
   {
@@ -1700,7 +1703,7 @@ window.BDS_SEARCH_INDEX = [
       "homicide",
       "investigator"
     ],
-    "text": "Watch the interview with Blackman Detective Services investigators and hear more about the work behind the firm. Who Doesn’t Love a Good Detective Story? Attorney at Law Magazine profiled Jamie Mitchell and Blackman Detective Services in a feature story about the firm’s work, leadership, and client base. Forensic Files Case Feature Allison Blackman was a homicide investigator on a case later featured on Forensic Files. Have a question for Blackman Detective Services? If something you read or hear brings up a question, contact the firm directly for a confidential consultation.",
+    "text": "Watch the interview with Blackman Detective Services investigators and hear more about the work behind the firm. Who Doesn’t Love a Good Detective Story? Attorney at Law Magazine profiled Jamie Mitchell and Blackman Detective Services in a feature story about the firm’s work, leadership, and client base. Forensic Files Case Feature Allison Blackman was a homicide investigator on a case later featured on Forensic Files. Have a question for Blackman Detective Services? If something you read or hear brings up a question, request a free, confidential consultation with Blackman Detective Services.",
     "position": 1
   },
   {

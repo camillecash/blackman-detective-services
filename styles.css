@@ -1580,6 +1580,10 @@ h3 {
   animation: aboutContentRise 620ms ease both;
 }
 
+.about-cta .button.light {
+  white-space: nowrap;
+}
+
 .about-cta .button.light:hover,
 .about-cta .button.light:focus-visible {
   background: var(--brass);
@@ -4087,7 +4091,8 @@ h3 {
 }
 
 .chatbot.open .chat-panel {
-  display: block;
+  display: grid;
+  grid-template-rows: auto minmax(0, auto) auto auto;
 }
 
 .chat-head {
@@ -4107,17 +4112,17 @@ h3 {
 }
 
 .chat-body {
-  max-height: 320px;
+  max-height: 360px;
   overflow: auto;
-  padding: 14px;
+  padding: 12px;
 }
 
 .chat-message {
-  padding: 10px 12px;
+  padding: 9px 11px;
   border-radius: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   background: var(--blue-soft);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
 }
 
 .chat-message-link {
@@ -4137,12 +4142,12 @@ h3 {
 
 .chat-quick-questions {
   display: grid;
-  gap: 8px;
+  gap: 6px;
   padding: 0 14px 12px;
 }
 
 .chat-body .chat-quick-questions {
-  padding: 0 0 12px;
+  padding: 0 0 4px;
 }
 
 .chat-quick-questions[hidden] {
@@ -4163,9 +4168,9 @@ h3 {
   color: var(--blue-dark);
   cursor: pointer;
   font: inherit;
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   font-weight: 750;
-  padding: 9px 10px;
+  padding: 7px 9px;
   text-align: left;
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
 }

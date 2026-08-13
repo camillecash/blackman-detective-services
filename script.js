@@ -376,6 +376,11 @@ function scrollChatToBottom() {
   });
 }
 
+function hasActiveChatConversation() {
+  if (!body) return false;
+  return body.querySelectorAll(".chat-message").length > 1 || Boolean(body.querySelector(".chat-message.user"));
+}
+
 function placeQuickQuestions() {
   if (!body || !quickQuestionPanel) return;
   const firstMessage = body.querySelector(".chat-message");
@@ -746,7 +751,7 @@ if (toggle && chatbot) {
     event.stopPropagation();
     dismissChatNudge();
     chatbot.classList.toggle("open");
-    if (chatbot.classList.contains("open")) scrollChatToBottom();
+    if (chatbot.classList.contains("open") && hasActiveChatConversation()) scrollChatToBottom();
   });
 
   if (chatNudgeOpen) {
@@ -754,7 +759,7 @@ if (toggle && chatbot) {
       event.stopPropagation();
       dismissChatNudge();
       chatbot.classList.add("open");
-      scrollChatToBottom();
+      if (hasActiveChatConversation()) scrollChatToBottom();
       if (input) input.focus();
     });
   }
