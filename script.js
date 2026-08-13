@@ -953,6 +953,20 @@ if (testimonialCarousel) {
     const card = track.querySelector(".home-testimonial");
     const cardWidth = card ? card.getBoundingClientRect().width + 16 : 0;
     const distance = Math.max(track.clientWidth * 0.9, cardWidth * 2);
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const atEnd = track.scrollLeft >= maxScroll - 8;
+    const atStart = track.scrollLeft <= 8;
+
+    if (direction > 0 && atEnd) {
+      track.scrollTo({ left: 0, behavior: "smooth" });
+      return;
+    }
+
+    if (direction < 0 && atStart) {
+      track.scrollTo({ left: maxScroll, behavior: "smooth" });
+      return;
+    }
+
     track.scrollBy({ left: direction * distance, behavior: "smooth" });
   };
 

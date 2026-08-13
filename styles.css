@@ -779,10 +779,14 @@ h3 {
   grid-auto-flow: column;
   gap: 16px;
   overflow-x: auto;
-  padding: 6px 2px 18px;
+  padding: 6px 2px;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
+  scrollbar-width: none;
+}
+
+.home-testimonial-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .home-testimonial {
