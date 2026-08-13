@@ -9,6 +9,8 @@ const navLinks = document.querySelector(".nav-links");
 const languageLinks = document.querySelectorAll("[data-translate-language]");
 const newsletterArchive = document.querySelector("[data-newsletter-archive]");
 const newsletterToggle = document.querySelector("[data-newsletter-toggle]");
+const sleuthSignup = document.querySelector("[data-sleuth-signup]");
+const sleuthSignupLabel = document.querySelector("[data-sleuth-signup-label]");
 const policyTabs = document.querySelectorAll("[data-policy-tab]");
 const policyPanels = document.querySelectorAll("[data-policy-panel]");
 const testimonialCarousel = document.querySelector("[data-testimonial-carousel]");
@@ -925,6 +927,20 @@ if (newsletterArchive && newsletterToggle) {
     newsletterToggle.setAttribute("aria-expanded", String(isExpanded));
     newsletterToggle.textContent = isExpanded ? "Show Fewer Newsletters" : "View More Newsletters";
   });
+}
+
+if (sleuthSignup && sleuthSignupLabel) {
+  const updateSleuthSignupLabel = () => {
+    sleuthSignupLabel.setAttribute("aria-expanded", String(sleuthSignup.open));
+  };
+
+  sleuthSignupLabel.addEventListener("click", () => {
+    sleuthSignup.open = !sleuthSignup.open;
+    updateSleuthSignupLabel();
+  });
+
+  sleuthSignup.addEventListener("toggle", updateSleuthSignupLabel);
+  updateSleuthSignupLabel();
 }
 
 if (testimonialCarousel) {

@@ -849,7 +849,7 @@ window.BDS_SEARCH_INDEX = [
       "would",
       "recommend"
     ],
-    "text": "“A highly professional group with the right resources and connections to get the job done. They leverage both classic detective work and the latest technologies.” “Compassionate service. They will be there when nobody else will be. I would recommend them to anyone.” Use the secure payment page to pay an invoice for Blackman Detective Services. If Blackman Detective Services has helped you, your Google review is appreciated. Ready to discuss your investigative needs? The initial consultation is free. Contact Blackman Detective Services directly for case-specific questions or sensitive details.",
+    "text": "“A highly professional group with the right resources and connections to get the job done. They leverage both classic detective work and the latest technologies.” “Compassionate service. They will be there when nobody else will be. I would recommend them to anyone.” Use the secure payment page to pay an invoice for Blackman Detective Services. If Blackman Detective Services has helped you, your Google review is appreciated! Ready to discuss your investigative needs? The initial consultation is free. Contact Blackman Detective Services directly for case-specific questions or sensitive details.",
     "position": 8
   },
   {

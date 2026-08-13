@@ -15,12 +15,17 @@
       <h1>The Sleuth</h1>
       <p>Read up, listen and follow like a real detective with the investigators at Blackman Detective Services.</p>
       <form class="sleuth-hero-signup" action="https://blackmanpi.us14.list-manage.com/subscribe/post?u=bc8b4074cea3e463b203c48bb&amp;id=0f94a6462e&amp;f_id=00a9a9e0f0" method="post" target="_blank">
-        <label for="sleuth-hero-email">Subscribe to The Sleuth</label>
+        <button class="sleuth-signup-title" type="button" data-sleuth-signup-label aria-controls="sleuth-hero-fields" aria-expanded="false">Subscribe to The Sleuth</button>
         <p>Get new case stories, Little Red Flags, and updates from Blackman Detective Services.</p>
-        <div>
-          <input id="sleuth-hero-email" name="EMAIL" type="email" placeholder="Email address" autocomplete="email" required>
-          <button class="button light" type="submit">Sign Up</button>
-        </div>
+        <details class="sleuth-signup-disclosure" data-sleuth-signup>
+          <summary aria-label="Open newsletter signup form"></summary>
+          <div id="sleuth-hero-fields">
+            <input id="sleuth-hero-first-name" name="FNAME" type="text" placeholder="First name" autocomplete="given-name">
+            <input id="sleuth-hero-last-name" name="LNAME" type="text" placeholder="Last name" autocomplete="family-name">
+            <input id="sleuth-hero-email" name="EMAIL" type="email" placeholder="Email address" autocomplete="email" required>
+            <button class="button light" type="submit">Sign Up</button>
+          </div>
+        </details>
         <input type="text" name="b_bc8b4074cea3e463b203c48bb_0f94a6462e" tabindex="-1" aria-hidden="true">
       </form>
     </div></section>
