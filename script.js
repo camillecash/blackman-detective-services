@@ -19,6 +19,8 @@ const chatNudgeOpen = document.querySelector("[data-chat-nudge-open]");
 const chatNudgeClose = document.querySelector("[data-chat-nudge-close]");
 const quickQuestionPanel = document.querySelector(".chat-quick-questions");
 const quickQuestionButtons = document.querySelectorAll("[data-chat-question]");
+const styledServiceMap = document.querySelector("[data-styled-service-map]");
+const serviceMapCityButtons = document.querySelectorAll("[data-map-city]");
 const chatNudgeDismissedKey = "bdsSleuthyNudgeDismissed";
 const chatCarryoverKey = "bdsSleuthyCarryover";
 const chatCarryoverPendingKey = "bdsSleuthyCarryoverPending";
@@ -446,6 +448,162 @@ function restoreChatCarryover() {
 
 restoreChatCarryover();
 
+if (styledServiceMap && window.L) {
+  const styledServiceMapOption = styledServiceMap.closest(".service-map-option");
+  const serviceCities = [
+    ["Raleigh", "Triangle", "Raleigh-based Private Investigation support for law firms, insurers, businesses, and individuals.", 35.7796, -78.6382, "assets/raleigh-skyline-hero.png"],
+    ["Cary", "Wake County", "Private Investigation Services available for Cary and nearby Wake County communities.", 35.7915, -78.7811, "assets/cities/cary.jpg"],
+    ["Durham", "Triangle", "Professional investigative support for Durham clients, attorneys, insurers, and businesses.", 35.9940, -78.8986, "assets/cities/durham.jpg"],
+    ["Chapel Hill", "Triangle", "Discreet Private Investigation support for Chapel Hill and surrounding Orange County communities.", 35.9132, -79.0558, "assets/cities/chapel-hill.webp"],
+    ["Wake Forest", "Wake County", "Private Investigation Services for Wake Forest and northern Wake County matters.", 35.9799, -78.5097, "assets/cities/wake-forest.jpg"],
+    ["Clayton", "Johnston County", "Investigative support for Clayton, Johnston County, and nearby communities.", 35.6507, -78.4564, "assets/cities/clayton.jpg"],
+    ["Wendell", "Wake County", "Private Investigation support for Wendell and eastern Wake County.", 35.7807, -78.3697, "assets/cities/wendell.jpg"],
+    ["Zebulon", "Wake County", "Investigative services available for Zebulon and nearby eastern Wake County communities.", 35.8243, -78.3147, "assets/cities/zebulon.webp"],
+    ["Greenville", "Eastern North Carolina", "Private Investigation Services for Greenville and eastern North Carolina matters when appropriate.", 35.6127, -77.3664, "assets/cities/greenville.jpg"],
+    ["Fayetteville", "Sandhills", "Investigative support for Fayetteville and surrounding Sandhills communities.", 35.0527, -78.8784, "assets/cities/fayetteville.webp"],
+    ["Greensboro", "Triad", "Private Investigation support for Greensboro, the Triad, and related legal or insurance matters.", 36.0726, -79.7920, "assets/cities/greensboro.jpg"],
+    ["Burlington", "Piedmont", "Investigative services available for Burlington and surrounding Piedmont communities.", 36.0957, -79.4378, "assets/cities/burlington.jpg"],
+    ["Rocky Mount", "Eastern North Carolina", "Private Investigation support for Rocky Mount and nearby eastern North Carolina communities.", 35.9382, -77.7905, "assets/cities/rocky-mount.jpg"],
+    ["Henderson", "Northern North Carolina", "Investigative services available for Henderson and surrounding northern North Carolina communities.", 36.3296, -78.3992, "assets/cities/henderson.jpg"]
+  ];
+
+  const serviceMarkers = new Map();
+  const serviceIcon = window.L.divIcon({
+    className: "service-map-marker",
+    html: "<span></span>",
+    iconSize: [34, 34],
+    iconAnchor: [17, 17],
+    popupAnchor: [0, -18]
+  });
+
+  const addServiceMarkers = (map) => {
+    serviceCities.forEach(([city, region, copy, lat, lng, image]) => {
+      const marker = window.L.marker([lat, lng], { icon: serviceIcon, title: city })
+        .addTo(map)
+        .bindPopup(`
+        <div class="service-map-popup">
+          ${image ? `<img class="map-city-photo" src="${image}" alt="${city} city view" loading="lazy">` : `<div class="map-skyline" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>`}
+          <small>${region}</small>
+          <strong>${city}</strong>
+          <p>${copy}</p>
+          <a href="${pageHref("Contact")}">Free Consultation</a>
+        </div>
+      `);
+      serviceMarkers.set(city, marker);
+    });
+
+    const bounds = window.L.latLngBounds(serviceCities.map((city) => [city[3], city[4]]));
+    map.fitBounds(bounds, { padding: [32, 32] });
+    return bounds;
+  };
+
+  if (styledServiceMap && window.L.maplibreGL) {
+    const styledMap = window.L.map(styledServiceMap, {
+      scrollWheelZoom: false,
+      zoomControl: true,
+      attributionControl: false
+    }).setView([35.72, -78.58], 7);
+
+    window.L.control.attribution({
+      prefix: false
+    }).addTo(styledMap);
+
+    window.L.maplibreGL({
+      style: "https://tiles.openfreemap.org/styles/liberty",
+      attribution: "OpenFreeMap | OpenStreetMap contributors"
+    }).addTo(styledMap);
+
+    const initialBounds = addServiceMarkers(styledMap);
+    let resetMapTimeout;
+    let popupIsOpen = false;
+    const makeMapAttributionPlainText = () => {
+      styledServiceMap.querySelectorAll(".leaflet-control-attribution a").forEach((link) => {
+        link.replaceWith(document.createTextNode(link.textContent || ""));
+      });
+    };
+    const attributionObserver = new MutationObserver(makeMapAttributionPlainText);
+
+    makeMapAttributionPlainText();
+    attributionObserver.observe(styledServiceMap, { childList: true, subtree: true });
+    styledMap.on("layeradd moveend zoomend", makeMapAttributionPlainText);
+
+    const setActiveMapCity = (cityName = "") => {
+      serviceMapCityButtons.forEach((button) => {
+        const isActive = button.dataset.mapCity === cityName;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+    };
+
+    setActiveMapCity();
+
+    const resetStyledMap = (delay = 80) => {
+      window.clearTimeout(resetMapTimeout);
+      resetMapTimeout = window.setTimeout(() => {
+        styledMap.fitBounds(initialBounds, { padding: [32, 32], animate: true, duration: 0.45 });
+      }, delay);
+    };
+
+    styledMap.on("popupopen", (event) => {
+      const popupSource = event.popup && event.popup._source;
+      popupIsOpen = true;
+      if (styledServiceMapOption) styledServiceMapOption.classList.add("is-popup-open");
+      setActiveMapCity((popupSource && popupSource.options && popupSource.options.title) || "");
+      window.clearTimeout(resetMapTimeout);
+    });
+
+    styledMap.on("popupclose", () => {
+      popupIsOpen = false;
+      if (styledServiceMapOption) styledServiceMapOption.classList.remove("is-popup-open");
+      window.clearTimeout(resetMapTimeout);
+      resetMapTimeout = window.setTimeout(() => {
+        if (!popupIsOpen) {
+          setActiveMapCity();
+          resetStyledMap(0);
+        }
+      }, 140);
+    });
+
+    styledMap.on("click", (event) => {
+      const originalTarget = event.originalEvent && event.originalEvent.target;
+      if (
+        originalTarget &&
+        (originalTarget.closest(".leaflet-marker-icon") || originalTarget.closest(".leaflet-popup"))
+      ) {
+        return;
+      }
+      styledMap.closePopup();
+      popupIsOpen = false;
+      if (styledServiceMapOption) styledServiceMapOption.classList.remove("is-popup-open");
+      setActiveMapCity();
+      resetStyledMap();
+    });
+
+    serviceMapCityButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const marker = serviceMarkers.get(button.dataset.mapCity);
+        if (!marker) return;
+        popupIsOpen = true;
+        setActiveMapCity(button.dataset.mapCity);
+        window.clearTimeout(resetMapTimeout);
+        styledMap.setView(marker.getLatLng(), Math.max(styledMap.getZoom(), 8), { animate: true });
+        marker.openPopup();
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!styledServiceMap.contains(event.target) && !event.target.closest("[data-map-city]")) {
+        styledMap.closePopup();
+        popupIsOpen = false;
+        if (styledServiceMapOption) styledServiceMapOption.classList.remove("is-popup-open");
+        setActiveMapCity();
+        resetStyledMap();
+      }
+    });
+  }
+}
+
 function normalizeText(value) {
   return value
     .toLowerCase()
@@ -563,9 +721,17 @@ function answerFor(value) {
     };
   }
 
-  if (hasAny(question, ["service area", "service areas", "serving area", "areas do you serve", "area do you serve", "where do you serve", "where do you service", "areas served", "cities", "raleigh", "durham", "cary", "chapel hill", "apex", "wake forest", "north carolina"])) {
+  if (hasAny(question, ["out of state", "out-of-state", "outside north carolina", "outside of north carolina", "another state", "other state", "other states", "different state", "south carolina", "sc", "virginia", "georgia", "tennessee", "cases in other states", "case in another state", "work in other states", "work outside nc", "reciprocity", "subcontract", "subcontractor", "subcontractors", "case originates", "case originated", "originates in north carolina", "originated in north carolina"])) {
     return {
-      text: "Blackman Detective Services serves Raleigh, Durham, Cary, Chapel Hill, Apex, Wake Forest, and clients across North Carolina.",
+      text: "If a case originates in North Carolina, Blackman Detective Services may be able to continue supporting that matter beyond North Carolina. For matters based in another state, the team may coordinate with or subcontract an investigator where appropriate.",
+      href: pageHref("Contact"),
+      label: "Free Consultation"
+    };
+  }
+
+  if (hasAny(question, ["service area", "service areas", "serving area", "areas do you serve", "area do you serve", "where do you serve", "where do you service", "areas served", "cities", "raleigh", "durham", "cary", "chapel hill", "wake forest", "clayton", "wendell", "zebulon", "greenville", "fayetteville", "greensboro", "burlington", "rocky mount", "henderson", "north carolina"])) {
+    return {
+      text: "Blackman Detective Services is based in Raleigh and serves Cary, Durham, Chapel Hill, Wake Forest, Clayton, Wendell, Zebulon, Greenville, Fayetteville, Greensboro, Burlington, Rocky Mount, Henderson, and surrounding North Carolina communities.",
       href: pageHref("Contact"),
       label: "Free Consultation"
     };

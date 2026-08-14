@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Blackman Detective Services | Private Investigator in North Carolina</title>
   <meta name="description" content="Blackman Detective Services provides professional Private Investigation Services in Raleigh and across North Carolina.">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="home-page">
@@ -56,17 +58,52 @@
 
     <section class="section home-intro-section">
       <div class="section-inner home-intro">
+        <div class="home-fingerprint-field" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
         <div class="home-intro-copy">
           <div class="section-header">
             <h2>A trusted Raleigh firm with statewide reach.</h2>
             <p>Blackman Detective Services has worked extensively with law firms, the insurance industry, private businesses, and individuals. The team is known for careful research, field experience, and attention to sensitive client needs.</p>
           </div>
+          <div class="home-intro-proof" aria-label="Blackman Detective Services highlights">
+            <span><strong>1993</strong>Founded in Raleigh</span>
+            <span><strong>100+</strong>Years combined experience</span>
+            <span><strong>NC</strong>Licensed Private Investigators</span>
+          </div>
         </div>
         <div class="home-firm-card">
-          <strong>Decades of Investigative Insight</strong>
-          <span>Professional support for sensitive matters.</span>
+          <div class="home-firm-mark" aria-hidden="true"></div>
+          <span>Decades of Investigative Insight</span>
+          <strong>Professional support for sensitive matters.</strong>
           <p>Founded by retired Raleigh homicide investigator William Allison Blackman and now led by Jamie Mitchell, Blackman Detective Services continues a long tradition of professional investigative work.</p>
           <div class="home-inline-links"><a href="about">Learn About the Firm</a><a href="faq">Read FAQ</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section home-areas-section" id="areas-served">
+      <div class="section-inner home-areas">
+        <div class="home-areas-copy">
+          <span class="home-areas-label">North Carolina service area</span>
+          <div class="section-header">
+            <h2>Serving Raleigh and communities across North Carolina.</h2>
+            <p>Blackman Detective Services is based in Raleigh and works with clients throughout the Triangle, the Triad, eastern North Carolina, and surrounding communities.</p>
+          </div>
+          <div class="home-areas-note">
+            <strong>Interactive coverage map</strong>
+            <p>Select a community on the map or in the list to see more about the areas Blackman Detective Services serves.</p>
+          </div>
+          <a class="button ghost" href="contact">Request a Free Consultation</a>
+        </div>
+        <div class="service-map-card">
+          <div class="service-map-option service-map-option-styled">
+            <span>Service area map</span>
+            <div class="service-map" id="styled-service-area-map" data-styled-service-map aria-label="Styled interactive North Carolina service area map"></div>
+          </div>
+          <ul class="service-map-fallback" aria-label="Service area cities">
+            <li><button type="button" data-map-city="Raleigh">Raleigh</button></li><li><button type="button" data-map-city="Cary">Cary</button></li><li><button type="button" data-map-city="Durham">Durham</button></li><li><button type="button" data-map-city="Chapel Hill">Chapel Hill</button></li><li><button type="button" data-map-city="Wake Forest">Wake Forest</button></li><li><button type="button" data-map-city="Clayton">Clayton</button></li><li><button type="button" data-map-city="Wendell">Wendell</button></li><li><button type="button" data-map-city="Zebulon">Zebulon</button></li><li><button type="button" data-map-city="Greenville">Greenville</button></li><li><button type="button" data-map-city="Fayetteville">Fayetteville</button></li><li><button type="button" data-map-city="Greensboro">Greensboro</button></li><li><button type="button" data-map-city="Burlington">Burlington</button></li><li><button type="button" data-map-city="Rocky Mount">Rocky Mount</button></li><li><button type="button" data-map-city="Henderson">Henderson</button></li>
+          </ul>
         </div>
       </div>
     </section>
@@ -342,6 +379,9 @@
       </form></div><button class="chat-toggle" data-chat-toggle aria-label="Open chatbot">Chat</button>
   </div>
   <script src="search-index.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet/leaflet-maplibre-gl.js"></script>
   <script src="script.js"></script>
   <div id="google_translate_element" class="translate-widget" aria-hidden="true"></div>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
