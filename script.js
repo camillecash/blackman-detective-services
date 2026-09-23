@@ -334,7 +334,7 @@ const pageLinks = {
   "Contact": "contact",
   "Payments": "payments",
   "The Sleuth": "the-sleuth",
-  "Privacy Policy": "privacy-policy"
+  "Privacy Policy": "privacy-policy/"
 };
 
 function pageHref(page) {
