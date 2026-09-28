@@ -895,22 +895,30 @@ function answerFor(value) {
 }
 
 if (toggle && chatbot) {
+  const isHomePage = document.body.classList.contains("home-page");
+
   const dismissChatNudge = () => {
     if (chatNudge) chatNudge.hidden = true;
     sessionStorage.setItem(chatNudgeDismissedKey, "true");
   };
 
-  if (chatNudge) {
+  const syncChatNudge = () => {
+    if (!chatNudge) return;
     const navigationEntry = performance.getEntriesByType("navigation")[0];
-    if (navigationEntry && navigationEntry.type === "reload") {
+    if (isHomePage && navigationEntry && navigationEntry.type === "reload") {
       sessionStorage.removeItem(chatNudgeDismissedKey);
-    } else if (sessionStorage.getItem(chatNudgeDismissedKey) === "true") {
-      chatNudge.hidden = true;
     }
+    chatNudge.hidden = !isHomePage || sessionStorage.getItem(chatNudgeDismissedKey) === "true";
+  };
+
+  if (chatNudge) {
+    syncChatNudge();
 
     window.addEventListener("pagehide", () => {
       sessionStorage.setItem(chatNudgeDismissedKey, "true");
     });
+
+    window.addEventListener("pageshow", syncChatNudge);
   }
 
   toggle.addEventListener("click", (event) => {
@@ -984,7 +992,7 @@ if (menuToggle && siteHeader && navLinks) {
   });
 }
 
-const revealCards = document.querySelectorAll(".reveal-card");
+const revealCards = document.querySelectorAll(".reveal-card, .home-reveal");
 if (revealCards.length) {
   const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!("IntersectionObserver" in window) || prefersReducedMotion) {
@@ -996,7 +1004,7 @@ if (revealCards.length) {
         entry.target.classList.add("is-visible");
         observer.unobserve(entry.target);
       });
-    }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+    }, { threshold: 0.08, rootMargin: "0px 0px 4% 0px" });
 
     revealCards.forEach((card) => revealObserver.observe(card));
   }
