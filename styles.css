@@ -87,6 +87,7 @@ img {
 .topbar-links {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 14px;
 }
 
@@ -122,6 +123,17 @@ img {
 .language-link[hidden],
 .translate-widget {
   display: none;
+}
+
+.topbar .language-link {
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.topbar .language-link::after {
+  content: none;
 }
 
 .site-header {
@@ -5394,13 +5406,16 @@ h3 {
   }
 
   .topbar-inner {
-    gap: 7px;
-    padding: 8px 0 9px;
+    gap: 8px;
+    padding: 9px 0 10px;
   }
 
   .topbar-inner > span:first-child {
     display: block;
     width: 100%;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    text-align: left;
     font-size: 0.84rem;
     font-weight: 700;
     line-height: 1.25;
@@ -5410,18 +5425,34 @@ h3 {
   .topbar-links {
     display: grid;
     width: 100%;
-    grid-template-columns: max-content max-content;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 7px 12px;
     font-size: 0.82rem;
     line-height: 1.25;
   }
 
-  .topbar-links a:last-child {
-    grid-column: 1 / -1;
+  .topbar-links a {
+    justify-self: start;
+  }
+
+  .topbar-links a[href^="tel:"] {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .topbar-links a[href^="mailto:"] {
+    grid-column: 1;
+    grid-row: 2;
     justify-self: start;
     width: fit-content;
     font-size: 0.8rem;
     opacity: 0.94;
+  }
+
+  .topbar-links .language-link {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
   }
 
   .newsletter-field,
