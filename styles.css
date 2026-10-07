@@ -5560,7 +5560,15 @@ h3 {
 }
 
 @media (max-width: 700px) {
+  .home-hero::after {
+    z-index: 1;
+    background:
+      linear-gradient(180deg, rgba(6, 31, 42, 0.68), rgba(6, 31, 42, 0.78)),
+      linear-gradient(180deg, transparent 68%, rgba(6, 31, 42, 0.92));
+  }
+
   .home-hero::before {
+    z-index: 0;
     inset: 0;
     width: auto;
     height: auto;
@@ -5568,14 +5576,33 @@ h3 {
       url("assets/raleigh-skyline-hero.png") center / cover no-repeat;
     background-size: cover;
     background-position: center;
-    opacity: 0.55;
+    opacity: 0.72;
     -webkit-mask-image: none;
     mask-image: none;
   }
 
   .home-hero-inner {
-    min-height: 430px;
-    padding: 58px 0 68px;
+    z-index: 2;
+    min-height: 0;
+    padding: 46px 0 54px;
+  }
+
+  .home-hero h1 {
+    max-width: 620px;
+    font-size: clamp(2rem, 9vw, 2.65rem);
+    line-height: 1.08;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.72);
+  }
+
+  .home-hero p {
+    max-width: 600px;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.82);
+  }
+
+  .home-hero .hero-actions {
+    margin-top: 22px;
   }
 
   .home-hero-panel .section-inner {
