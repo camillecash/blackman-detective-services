@@ -2945,6 +2945,7 @@ h3 {
 .service-item-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: dense;
   gap: 1px;
   background: rgba(23, 103, 127, 0.12);
 }

@@ -28,7 +28,7 @@ const chatCarryoverPendingKey = "bdsSleuthyCarryoverPending";
 const answers = [
   {
     keys: ["service", "offer", "investigation", "investigations"],
-    text: "Blackman Detective Services offers Private Investigation Services including background checks, litigation support, surveillance, workers' compensation investigations, domestic investigations, locating persons, process serving, and insurance-related investigations."
+    text: "Blackman Detective Services offers Private Investigation Services including background checks, litigation support, surveillance, workers' compensation investigations, domestic investigations, locating persons, service of process, and insurance-related investigations."
   },
   {
     keys: ["licensed", "license", "state", "states"],
@@ -69,7 +69,7 @@ const siteKnowledge = [
     title: "Services overview",
     page: "Services",
     keywords: ["services", "offer", "investigations", "Private Investigator", "investigative services"],
-    text: "Blackman Detective Services is a multi-disciplined Private Investigation Firm offering liability investigations, background checks, litigation support, asset research, child custody and special investigations, criminal defense investigations, criminal investigations, disability claims investigations, domestic investigations, due diligence, insurance case surveillance, jury panel research, locating persons, personal injury investigations, process serving, property and casualty insurance claims investigation, statements, surveillance, telephone number identification, and workers' compensation investigations."
+    text: "Blackman Detective Services is a multi-disciplined Private Investigation Firm offering domestic investigations, child custody and special investigations, locating persons, telephone number research, insurance case surveillance, liability and accident investigations, personal injury investigations, workers' compensation investigations, court testimony, criminal defense investigations, statements and interviews, litigation and trial support, service of process, background checks, asset research, due diligence, and records research."
   },
   {
     title: "Asset research",
@@ -150,10 +150,10 @@ const siteKnowledge = [
     text: "Litigation support ranges from simple due diligence matters to complex litigation support needs."
   },
   {
-    title: "Locating persons",
+    title: "Locating Persons",
     page: "Services",
-    keywords: ["locate person", "locating persons", "missing person", "find someone", "witness", "debtor", "victim", "old friend", "serve"],
-    text: "The firm can help locate victims, missing persons, witnesses, debtors, old friends, college sweethearts, and others. Once a person is located, the firm can serve legal documents."
+    keywords: ["locate person", "locating persons", "missing person", "find someone", "witness", "debtor", "family member", "former associate", "hard-to-find individual"],
+    text: "Finding someone starts with knowing where to look. The experienced research team uses professional investigative resources and proven techniques to locate individuals for a variety of personal and professional matters, including witnesses, debtors, family members, former associates, and other hard-to-find individuals."
   },
   {
     title: "Personal injury investigations",
@@ -162,10 +162,10 @@ const siteKnowledge = [
     text: "Personal injury investigations can address loss of earnings, personality changes, physical losses, and other losses."
   },
   {
-    title: "Process serving",
+    title: "Service of Process",
     page: "Services",
-    keywords: ["process serving", "serve", "civil papers", "legal papers", "documents"],
-    text: "Blackman Detective Services can serve civil and legal papers pursuant to North Carolina Rules of Civil Procedure and can coordinate service of process worldwide."
+    keywords: ["service of process", "process serving", "serve", "civil papers", "legal papers", "legal documents", "serving legal documents", "papers"],
+    text: "Finding them is one service. Serving them is another. Blackman Detective Services provides professional service of legal documents throughout North Carolina with discretion, persistence, and detailed documentation, particularly when dealing with individuals who may be difficult to locate or intentionally avoiding service."
   },
   {
     title: "Property and casualty insurance claims",
@@ -841,7 +841,7 @@ function answerFor(value) {
     };
   }
 
-  if (hasAny(question, ["process serving", "serve papers", "serve documents", "legal papers", "civil papers"])) {
+  if (hasAny(question, ["service of process", "serve papers", "serve documents", "legal papers", "civil papers"])) {
     return {
       text: "Blackman Detective Services can serve civil and legal papers pursuant to North Carolina Rules of Civil Procedure and can coordinate service of process worldwide.",
       href: pageHref("Services"),
@@ -867,7 +867,7 @@ function answerFor(value) {
 
   if (hasAny(question, ["services", "service", "offer", "do you do", "what do you do"])) {
     return {
-      text: "Blackman Detective Services offers Private Investigation Services including background checks, litigation support, surveillance, workers' compensation investigations, domestic investigations, locating persons, process serving, and insurance-related investigations.",
+      text: "Blackman Detective Services offers Private Investigation Services including background checks, litigation support, surveillance, workers' compensation investigations, domestic investigations, locating persons, service of process, and insurance-related investigations.",
       href: pageHref("Services"),
       label: "View Services"
     };
